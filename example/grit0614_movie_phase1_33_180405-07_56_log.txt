@@ -1,0 +1,77 @@
+User[grit0614] session starts
+/usr/local/lib/python3.5/dist-packages/tensorflow/python/ops/gradients_impl.py:93: UserWarning: Converting sparse IndexedSlices to a dense Tensor with 131209472 elements. This may consume a large amount of memory.
+  "This may consume a large amount of memory." % num_elements)
+2018-04-05 07:50:28.732578: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+2018-04-05 07:50:28.733746: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:892] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-04-05 07:50:28.734372: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties: 
+name: Tesla P40 major: 6 minor: 1 memoryClockRate(GHz): 1.531
+pciBusID: 0000:00:05.0
+totalMemory: 23.87GiB freeMemory: 23.51GiB
+2018-04-05 07:50:28.734405: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: Tesla P40, pci bus id: 0000:00:05.0, compute capability: 6.1)
+Traceback (most recent call last):
+  File "main.py", line 468, in <module>
+    nsml.report(summary=True, scope=locals(), epoch=epoch, epoch_total=config.epochs,
+NameError: name 'epoch' is not defined
+User session exited
+Vocab Size:  512537
+Train size:  520343
+#Class :  10
+MaxSentLen:  27
+[[     1      2      3 ...,      0      0      0]
+ [     7      8      9 ...,      0      0      0]
+ [    12     13     14 ...,      0      0      0]
+ ..., 
+ [    27 220385 512534 ...,      0      0      0]
+ [   109   2627    802 ...,      0      0      0]
+ [ 12892 512535   1969 ...,      0      0      0]]
+[ 8  9  8 ..., 10 10  8]
+Weights:  Tensor("truediv:0", shape=(512537, 1), dtype=float32)
+(?, 27, 64)
+(?, 64, 1)
+(?, 27, 64)
+(?, 64, 1)
+Initialized! 
+Start trainning
+
+Minibatch average time:  0.026627016067504884  s
+Step 0: loss : 4.847803   accuracy: 13.671875 %
+******************************
+
+******************************
+
+Minibatch average time:  0.21674682140350343  s
+Step 100: loss : 1.986791   accuracy: 7.812500 %
+
+Minibatch average time:  0.21302831649780274  s
+Step 200: loss : 0.871184   accuracy: 3.906250 %
+
+Minibatch average time:  0.20872504472732545  s
+Step 300: loss : 1.173299   accuracy: 5.859375 %
+
+Minibatch average time:  0.20906055688858033  s
+Step 400: loss : 1.205309   accuracy: 3.906250 %
+
+Minibatch average time:  0.21561110496520997  s
+Step 500: loss : 3.071214   accuracy: 10.156250 %
+******************************
+
+******************************
+
+Minibatch average time:  0.210724618434906  s
+Step 600: loss : 0.619369   accuracy: 4.296875 %
+
+Minibatch average time:  0.21085787057876587  s
+Step 700: loss : 0.896505   accuracy: 5.078125 %
+
+Minibatch average time:  0.21543803453445434  s
+Step 800: loss : 0.363090   accuracy: 1.953125 %
+
+Minibatch average time:  0.2102983283996582  s
+Step 900: loss : 2.717268   accuracy: 9.375000 %
+
+Minibatch average time:  0.2094719624519348  s
+Step 1000: loss : 0.626554   accuracy: 2.343750 %
+******************************
+
+******************************
+Training finished, time consumed :  214.66521573066711  s
