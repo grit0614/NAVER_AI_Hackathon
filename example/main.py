@@ -192,7 +192,7 @@ if __name__ == '__main__':
         DataPath = "./nsmc/raw/"
         VocabMinFreq = 0
         LearningRate = 1e-3
-        MaxStep = 1000
+        MaxStep = 100
         #
 
         if VERBOSE:
@@ -444,31 +444,34 @@ if __name__ == '__main__':
         #     for i, (data, labels) in enumerate(train_loader):
 
 
-            #     predictions = model(data)
-            #     label_vars = Variable(torch.from_numpy(labels))
-            #     if GPU_NUM:
-            #         label_vars = label_vars.cuda()
-            #     loss = criterion(predictions, label_vars)
-            #     if GPU_NUM:
-            #         loss = loss.cuda()
+        #         predictions = model(data)
+        #         label_vars = Variable(torch.from_numpy(labels))
+        #         if GPU_NUM:
+        #             label_vars = label_vars.cuda()
+        #         loss = criterion(predictions, label_vars)
+        #         if GPU_NUM:
+        #             loss = loss.cuda()
 
-            #     optimizer.zero_grad()
-            #     loss.backward()
-            #     optimizer.step()
-            #     print('Batch : ', i + 1, '/', total_batch,
-            #           ', MSE in this minibatch: ', loss.data[0])
-            #     avg_loss += loss.data[0]
-            # print('epoch:', epoch, ' train_loss:', float(avg_loss/total_batch))
+        #         optimizer.zero_grad()
+        #         loss.backward()
+        #         optimizer.step()
+        #         print('Batch : ', i + 1, '/', total_batch,
+        #               ', MSE in this minibatch: ', loss.data[0])
+        #         avg_loss += loss.data[0]
+        #     print('epoch:', epoch, ' train_loss:', float(avg_loss/total_batch))
             
 
 
 
         # nsml ps, 혹은 웹 상의 텐서보드에 나타나는 값을 리포트하는 함수입니다.
         #
-        nsml.report(summary=True, scope=locals(), epoch=epoch, epoch_total=config.epochs,
-                    train__loss=float(avg_loss/total_batch), step=epoch)
+        # nsml.report(summary=True, scope=locals(), epoch=epoch, epoch_total=config.epochs,
+                    # train__loss=float(avg_loss/total_batch), step=epoch)
+
+        nsml.report(summary=True, scope=locals(), epoch=step, epoch_total=steps,
+                            train__loss=float(l), step=step)
         # DONOTCHANGE (You can decide how often you want to save the model)
-        nsml.save(epoch)
+        nsml.save(step)
 
     # 로컬 테스트 모드일때 사용합니다
     # 결과가 아래와 같이 나온다면, nsml submit을 통해서 제출할 수 있습니다.
